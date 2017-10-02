@@ -1,0 +1,2 @@
+.env
+symfony/composer_cache/**

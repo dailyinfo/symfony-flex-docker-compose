@@ -1,0 +1,23 @@
+FROM php:7.1-fpm
+
+MAINTAINER Daily Info <info@dailyinfo.co.uk>
+
+RUN apt-get update && apt-get install -y \
+    openssl \
+    git \
+    unzip \
+    libmcrypt-dev
+RUN docker-php-ext-install pdo pdo_mysql mcrypt
+
+# install xdebug
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_log='/var/log/xdebug_remote.log'" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN usermod -u 1000 www-data
