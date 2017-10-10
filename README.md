@@ -1,7 +1,6 @@
 ### Setup
 
-1. Place a Symfony 3.4+/4 app in `$PROJECT_ROOT/app` (create a new Symfony Flex project with `composer create-project symfony/skeleton app`)
-2. Change your `app/.env` file to match the database settings from `docker-compose.yml`
+1. Copy `.env.dist` to `.env` and edit the path to your Symfony app, and the database parameters (will need to match your database parameters in your Symfony app's config)
 3. `docker-compose up -d`
 
 ### Includes
