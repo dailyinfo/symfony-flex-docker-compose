@@ -15,21 +15,21 @@
 Symfony commands can be run from the **php** container, e.g.
 
 ```
-docker-compose run php bin/console app:my_command
+docker-compose exec php bin/console app:my_command
 ```
 
-It will save time if you set up an alias within your shell for `docker-compose run php bin/console`.
+It will save time if you set up an alias within your shell for `docker-compose exec php bin/console`.
 
 To enable xDebug step-debugging within commands, you need to set the *xdebug.remote_host* PHP directive - on the command line like so:
 
 ```
-docker-compose run php php -dxdebug.remote_host=192.168.1.2 bin/console app:my_command
+docker-compose exec php php -dxdebug.remote_host=192.168.1.2 bin/console app:my_command
 ```
 
 Replace *192.168.1.2* with your **host** machine's local network IP. I have a bash alias set up for running commands that does this automatically:
 
 ```
-alias dcrs="docker-compose run php php -dxdebug.remote_host=$(ip route get 192.168.1.1 | awk '{print $NF; exit}') bin/console"
+alias dcrs="docker-compose exec php php -dxdebug.remote_host=$(ip route get 192.168.1.1 | awk '{print $NF; exit}') bin/console"
 ```
 
 Replace *192.168.1.1* with your local network's gateway, or *8.8.8.8*.
@@ -38,7 +38,7 @@ Replace *192.168.1.1* with your local network's gateway, or *8.8.8.8*.
 
 Composer commands can be run within the **php** container:
 
-`docker-compose run php composer *command*`
+`docker-compose exec php composer *command*`
 
 ### Logs
 
