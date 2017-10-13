@@ -21,19 +21,6 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-  redis:
-    image: redis:4
-    volumes:
-      - redisdata:/data
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.5.2
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
-      - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-    ports:
-      - 9200:9200
-    environment:
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
   elk:
     image: willdurand/elk
     ports:
@@ -42,8 +29,3 @@ services:
       - ./elk/logstash:/etc/logstash
       - ./elk/logstash/patterns:/opt/logstash/patterns
       - ${APP_PATH}:/var/www/symfony
-volumes:
-  esdata:
-    driver: local
-  redisdata:
-    driver: local

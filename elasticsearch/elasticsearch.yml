@@ -1,3 +1,0 @@
-xpack.security.enabled: false
-xpack.monitoring.enabled: false
-http.host: 0.0.0.0

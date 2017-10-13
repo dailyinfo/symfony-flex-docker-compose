@@ -8,8 +8,6 @@
 * nginx/PHP7.1
 * MariaDB
 * Composer
-* Elasticsearch
-* Redis
 * ELK stack for logs (Elasticsearch, Logstash, Kibana)
 
 ### Running commands
@@ -42,11 +40,7 @@ Composer commands can be run within the **php** container:
 
 `docker-compose run php composer *command*`
 
-### Using other services
-
-**Elasticsearch** elasticsearch:9200  
-**Redis** redis:5379  
-(from other containers - ports also exposed on host machine)
+### Logs
 
 View logs in Kibana at localhost:8080
 
