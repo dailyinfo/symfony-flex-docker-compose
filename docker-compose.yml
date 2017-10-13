@@ -7,16 +7,13 @@ services:
     volumes:
       - ${APP_PATH}:/var/www/symfony
     working_dir: /var/www/symfony
-  php-fpm:
+  php:
     build: php-fpm
     volumes:
       - ${APP_PATH}:/var/www/symfony
-  symfony:
-    build: symfony
-    user: "1000"
-    volumes:
-      - ${APP_PATH}:/var/www/symfony
-      - ./symfony/composer_cache:/var/www/.composer/cache
+      - ./composer_cache:/var/www/.composer/cache
+    environment:
+      - PHP_IDE_CONFIG=serverName=symfony.dev # Replace symfony.dev with the server name you've created in your IDE
   mariadb:
     image: mariadb:10.3
     environment:
