@@ -57,9 +57,13 @@ Replace *192.168.1.1* with your local network's gateway, or *8.8.8.8*.
 
 ### Using Composer
 
-Composer commands can be run within the **php** container:
+Composer commands can be run within the **composer** container:
 
-`docker-compose exec php composer *command*`
+`docker-compose exec composer *command*`
+
+Sometimes dependencies or Composer scripts require the availability of certain PHP extensions. You can work around this as follows:
+
+* Pass the --ignore-platform-reqs and --no-scripts flags
 
 ### Logs
 

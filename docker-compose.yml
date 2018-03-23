@@ -29,3 +29,7 @@ services:
       - ./elk/logstash:/etc/logstash
       - ./elk/logstash/patterns:/opt/logstash/patterns
       - ${APP_PATH}:/var/www/symfony
+  composer:
+    image: composer
+    volumes:
+      - ${APP_PATH}:/app
