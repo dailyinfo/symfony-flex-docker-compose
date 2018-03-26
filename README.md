@@ -2,7 +2,7 @@ A minimum-hassle docker-compose setup for developing Symfony Flex applications.
 
 ### Includes
 
-* nginx/PHP7.1
+* nginx/PHP7.2
 * MySQL (or MariaDB)
 * Composer
 * ELK stack for logs (Elasticsearch, Logstash, Kibana)
