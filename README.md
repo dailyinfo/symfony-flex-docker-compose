@@ -73,6 +73,6 @@ View logs in Kibana at `http://localhost:8080`
 
 ### Hosts file
 
-Add an entry to your hosts file to be able to access your app from `http://symfony.dev`. `http://localhost` works too.
+Add an entry to your hosts file to be able to access your app from `http://symfony.test`. `http://localhost` works too.
 
-127.0.0.1 symfony.dev
+127.0.0.1 symfony.test

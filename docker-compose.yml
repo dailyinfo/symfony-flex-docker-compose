@@ -12,7 +12,7 @@ services:
     volumes:
       - ${APP_PATH}:/var/www/symfony
     environment:
-      - PHP_IDE_CONFIG=serverName=symfony.dev # Replace symfony.dev with the server name you've created in your IDE
+      - PHP_IDE_CONFIG=serverName=symfony.test # Replace symfony.test with the server name you've created in your IDE
   database:
     image: mysql:5.7
     environment:
