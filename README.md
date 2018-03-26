@@ -2,8 +2,9 @@ A minimum-hassle docker-compose setup for developing Symfony Flex applications.
 
 ### Includes
 
-* nginx/PHP7.2
-* MySQL (or MariaDB)
+* nginx
+* PHP 7.2
+* MySQL 5.7
 * Composer
 * ELK stack for logs (Elasticsearch, Logstash, Kibana)
 
@@ -11,8 +12,6 @@ A minimum-hassle docker-compose setup for developing Symfony Flex applications.
 
 1. Copy `.env.dist` to `.env` and edit the path to your Symfony app, and the database parameters (will need to match your database parameters in your Symfony app's config)
 2. `docker-compose up -d`
-
-If you would rather run MariaDB than MySQL, change the image of the database service in docker-compose.yml to your preferred MariaDB version (eg mariadb:10.3)
 
 ### Prerequisites
 
