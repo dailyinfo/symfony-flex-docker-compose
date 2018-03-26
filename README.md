@@ -10,7 +10,7 @@ A minimum-hassle docker-compose setup for developing Symfony Flex applications.
 ### Setup
 
 1. Copy `.env.dist` to `.env` and edit the path to your Symfony app, and the database parameters (will need to match your database parameters in your Symfony app's config)
-3. `docker-compose up -d`
+2. `docker-compose up -d`
 
 If you would rather run MariaDB than MySQL, change the image of the database service in docker-compose.yml to your preferred MariaDB version (eg mariadb:10.3)
 
@@ -28,6 +28,8 @@ composer create-project symfony/skeleton app
 ```
 
 Replace *app* with the path (absolute or relative) to where you'd like the app directory to be created.
+
+**Note:** The `composer` container cannot be used for creating the project, as it depends on mounting the `./app` directory. The container is meant to be used for running composer commands within the context of your project.
 
 ### Running commands
 
