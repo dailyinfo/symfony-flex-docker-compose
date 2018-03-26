@@ -11,7 +11,6 @@ services:
     build: php-fpm
     volumes:
       - ${APP_PATH}:/var/www/symfony
-      - ./composer_cache:/var/www/.composer/cache
     environment:
       - PHP_IDE_CONFIG=serverName=symfony.dev # Replace symfony.dev with the server name you've created in your IDE
   database:
@@ -33,3 +32,4 @@ services:
     image: composer
     volumes:
       - ${APP_PATH}:/app
+      - ./composer_cache:/composer/cache
