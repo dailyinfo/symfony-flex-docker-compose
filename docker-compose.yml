@@ -14,8 +14,8 @@ services:
       - ./composer_cache:/var/www/.composer/cache
     environment:
       - PHP_IDE_CONFIG=serverName=symfony.dev # Replace symfony.dev with the server name you've created in your IDE
-  mariadb:
-    image: mariadb:10.3
+  database:
+    image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -29,3 +29,7 @@ services:
       - ./elk/logstash:/etc/logstash
       - ./elk/logstash/patterns:/opt/logstash/patterns
       - ${APP_PATH}:/var/www/symfony
+  composer:
+    image: composer
+    volumes:
+      - ${APP_PATH}:/app
