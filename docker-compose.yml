@@ -30,6 +30,7 @@ services:
       - ${APP_PATH}:/var/www/symfony
   composer:
     image: composer
+    user: "1000"
     volumes:
       - ${APP_PATH}:/app
       - ./composer_cache:/composer/cache

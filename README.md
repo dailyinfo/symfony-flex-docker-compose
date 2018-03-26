@@ -67,6 +67,8 @@ Sometimes dependencies or Composer scripts require the availability of certain P
 
 * Pass the --ignore-platform-reqs and --no-scripts flags
 
+**Note:** The **composer** container runs as user 1000, the default user ID of the first non-root user created in Unix systems, so that permissions are correct on files and directories that it creates.
+
 ### Logs
 
 View logs in Kibana at `http://localhost:8080`
