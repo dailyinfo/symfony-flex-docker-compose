@@ -29,7 +29,14 @@ composer create-project symfony/skeleton app
 
 Replace *app* with the path (absolute or relative) to where you'd like the app directory to be created.
 
-**Note:** The `composer` container cannot be used for creating the project, as it depends on mounting the `./app` directory. The container is meant to be used for running composer commands within the context of your project.
+**Note:** The `composer` service defined in `docker-compose.yml` cannot be used for creating a project, as it depends on the app path itself being mounted. The service is intended to be used for running composer commands within the context of your project. If you don't have, or don't want to have, PHP/Composer installed locally, you can still use Docker to run Composer, but in a standalone container [as explained here](https://hub.docker.com/r/library/composer/):
+
+```bash
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer create-project symfony/skeleton app
+```
 
 ### Running commands
 
